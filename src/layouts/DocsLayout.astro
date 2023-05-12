@@ -1,0 +1,53 @@
+---
+import Layout from './Layout.astro';
+let headings: { depth: number; slug: string; text: string }[];
+headings = Astro.props.headings;
+---
+
+<Layout currentPage='Documentation'>
+	<div class='container'>
+		<div class='sidebar'>
+			<ul>
+				{
+					headings.map(heading => {
+						if (heading.depth !== 1) return;
+						return (
+							<li>
+								<a href={'#' + heading.slug}>{heading.text}</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+			<div class='back-to-top'><a href='#'>To The Top</a></div>
+		</div>
+		<main>
+			<slot />
+		</main>
+	</div>
+	<style lang='scss' slot='head'>
+		.container {
+			display: flex;
+			.sidebar {
+				justify-self: center;
+				background: var(--secondary-background-color);
+				padding: 2%;
+				margin-right: 1%;
+				border-radius: 10px;
+				min-height: 75vh;
+
+				ul {
+					li {
+						margin-bottom: 1em;
+					}
+				}
+			}
+		}
+
+		.back-to-top {
+			position: sticky;
+
+			top: 10px;
+		}
+	</style>
+</Layout>
