@@ -11,6 +11,7 @@ const { currentPage }: Props = Astro.props;
 <html>
 	<head>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<link rel='icon' type='image/x-icon' href='/favicon.png' />
 		<GlobalStyles />
 		<slot name='head' />
 		<title>{currentPage}</title>
@@ -27,7 +28,8 @@ const { currentPage }: Props = Astro.props;
 					<li><a href='documentation'>Docs</a></li>
 					<li>
 						<a href='https://modrinth.com/mod/redstone-tools' target='_blank'
-							>Download</a>
+							>Download</a
+						>
 					</li>
 				</ul>
 			</nav>
