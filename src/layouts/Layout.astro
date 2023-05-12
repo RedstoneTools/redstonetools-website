@@ -1,0 +1,34 @@
+---
+import GlobalStyles from '../components/GlobalStyles.astro';
+
+interface Props {
+	currentPage: string;
+}
+
+const { currentPage }: Props = Astro.props;
+---
+
+<html>
+	<head>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<GlobalStyles />
+		<slot name='head' />
+		<title>{currentPage}</title>
+	</head>
+	<body>
+		<header>
+			<h1 class='accent'>
+				Redstone.Tools{currentPage === 'Home' ? '' : ` - ${currentPage}`}
+			</h1>
+
+			<nav>
+				<ul>
+					<li><a href='/'>Home</a></li>
+					<li><a href='documentation'>Docs</a></li>
+					<li><a href='download'>Download</a></li>
+				</ul>
+			</nav>
+		</header>
+		<slot />
+	</body>
+</html>

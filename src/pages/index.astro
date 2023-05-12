@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout currentPage="Home">
+    	<main>
+		<div class='info'>
+			<div class='about'>
+				<h2>About</h2>
+				<p>
+					Redstone Tools is a <abbr title='Quality Of Life'>QOL</abbr> mod designed
+					to make building redstone contraptions quicker and easier by letting you
+					focus on the fun parts and letting us do the boring bits.
+				</p>
+			</div>
+			<div class='open-source'>
+				<h2>Open Source</h2>
+				<p>
+					The mod and everything it uses is open source meaning you can see and
+					contribute to the code, you can find the source code and information
+					on contributing at <a
+						href='https://github.com/redstonetools/redstonetools'
+						target='_blank'>GitHub</a
+					>.
+				</p>
+			</div>
+		</div>
+		<ul class='top-features'>
+			<li class='feature macros'>
+				<div>
+					<h3>Macros</h3>
+					<p>
+						Do you find yourself running the same commands over and over? Well
+						the macro system has you covered! configure a list of commands which
+						can be activated either with a command or a keybind.
+					</p>
+				</div>
+			</li>
+			<li class='feature worldedit-extensions'>
+				<div>
+					<h3>WorldEdit Extensions</h3>
+					<p>
+						Commands that extend worldedit such as //minsel which removes all
+						uneeded air from your selection, or //read which reads a binary
+						output and prints it in decimal to the chat!
+					</p>
+				</div>
+			</li>
+			<li class='feature other-features'>
+				<div>
+					<h3>Other</h3>
+					<p>
+						We have many other features too, for example /base for easy number
+						conversion between different bases, /autodust for automated redstone
+						placement on solid blocks, and /airplace for hassle-free block
+						placement in mid-air.
+					</p>
+				</div>
+			</li>
+		</ul>
+	</main>
+	<style lang='scss' slot='head'>
+		.info {
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			& > * {
+				padding: max(1.5%, 7px);
+				margin: max(1%, 7px);
+				min-width: max(47%, 0px);
+				border-radius: 10px;
+				background: var(--accent-background-color);
+				flex: 1 1 40vw;
+			}
+
+			* {
+				a:hover {
+					color: var(--background-color);
+				}
+			}
+		}
+
+		.top-features {
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			.feature {
+				margin: max(1%, 7px);
+				border-radius: 10px;
+				min-width: max(47%, 0px);
+                width: 0;
+				background-repeat: no-repeat;
+				min-height: 20vh;
+				flex: 1 1 0;
+
+				& > * {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					border-radius: 10px;
+					height: 100%;
+					padding: max(1.5%, 7px);
+					backdrop-filter: brightness(20%);
+					h3 {
+						text-align: center;
+					}
+				}
+			}
+
+			.worldedit-extensions {
+				background-image: url('/images/worldedit-extensions.png');
+				background-position: center center;
+				background-size: cover;
+			}
+
+			.macros {
+				background-image: url('/images/macros.png');
+				background-position: center center;
+				background-size: cover;
+			}
+
+			.other-features {
+				background-image: url('/images/other.png');
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+	</style>
+</Layout>
