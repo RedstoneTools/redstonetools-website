@@ -1,0 +1,87 @@
+---
+---
+
+<style lang='scss' is:global>
+	:root {
+		--accent-color: #ca4747;
+		--accent-background-color: #973d3d;
+		--background-color: #111111;
+		--secondary-background-color: #222222;
+		--text-color: #ffffff;
+	}
+
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		background: var(--background-color);
+		color: var(--text-color);
+		min-height: 100vh;
+		font-family: sans-serif;
+		padding: 2%;
+		overflow-x: hidden;
+
+		* {
+			margin-bottom: 1%;
+		}
+	}
+
+	main {
+		justify-self: center;
+		background: var(--secondary-background-color);
+		padding: 1%;
+		border-radius: 10px;
+		min-height: 75vh;
+	}
+
+	header {
+		padding: 1%;
+		border-radius: 10px;
+		background: var(--secondary-background-color);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+
+		nav {
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: row;
+			min-width: 25%;
+
+			ul {
+				min-width: max(40vw, 100%);
+
+				li {
+					display: inline;
+					margin-left: 1%;
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+
+	.accent {
+		color: #ca4747;
+	}
+
+	a {
+		color: var(--text-color);
+		text-decoration: none;
+		background: linear-gradient(currentColor 0 0) bottom left/ 100%
+			var(--underline-thickness, 0.1em) no-repeat;
+		transition: background-size 0.1s, color 0.3s;
+
+		&:hover {
+			--underline-thickness: 0.2em;
+			color: var(--accent-color);
+		}
+	}
+
+	ul {
+		list-style: none;
+	}
+</style>
