@@ -50,35 +50,38 @@
 			display: flex;
 			align-items: center;
 			img {
-				height: 5em;
+				height: 3rem;
+				margin-right: 1rem;
 			}
-			flex-grow: 1;
+			// flex-grow: 1;
 		}
 
 		nav {
 			display: flex;
 			justify-content: space-evenly;
 			flex-direction: row;
-			max-width: 100vw;
-			flex-grow: 1;
+			width: auto;
 
 			ul {
+				box-sizing: content-box;
 				align-items: center;
 				display: flex;
 
 				li {
 					display: inline;
-					margin-left: 3%;
-					font-size: 1.2em;
+					margin-left: 3rem;
 					a {
+						font-size: 1.2em;
 						background: none;
 						height: 100%;
 						svg {
-							filter: brightness(0.5);
-							min-height: min(3rem, 5vh);
+							filter: brightness(1);
+							min-height: 3rem;
+							max-width: 100%;
 							transition: filter 0.1s linear;
+							color: white !important;
 							&:hover {
-								filter: brightness(1);
+								filter: brightness(0.5);
 							}
 						}
 					}
