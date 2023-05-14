@@ -10,22 +10,25 @@ headings = Astro.props.headings;
 			<ul>
 				{
 					headings.map(heading => {
-						if (heading.depth !== 1) return;
+						// if (heading.depth !== 1) return;
 						return (
-							<li>
+							<li
+								style={`margin-left: ${heading.depth / 2}em; list-style: ${
+									heading.depth % 2 ? 'disc' : 'circle'
+								}`}
+							>
 								<a href={'#' + heading.slug}>{heading.text}</a>
 							</li>
 						);
 					})
 				}
 			</ul>
-			<div class='back-to-top'><a href='#'>To The Top</a></div>
 		</div>
 		<main>
 			<slot />
 		</main>
 	</div>
-	<style lang='scss' slot='head'>
+	<style lang='scss' slot='head' is:global>
 		.container {
 			display: flex;
 			.sidebar {
@@ -39,15 +42,19 @@ headings = Astro.props.headings;
 				ul {
 					li {
 						margin-bottom: 1em;
+						list-style-type: square;
 					}
 				}
 			}
 		}
 
-		.back-to-top {
-			position: sticky;
-
-			top: 10px;
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin: 1.5% 0;
 		}
 	</style>
 </Layout>

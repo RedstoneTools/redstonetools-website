@@ -24,7 +24,7 @@
 		padding: 2%;
 		overflow-x: hidden;
 
-		* {
+		& > * {
 			margin-bottom: 1%;
 		}
 	}
@@ -46,19 +46,45 @@
 		align-items: center;
 		text-align: center;
 
+		.title {
+			display: flex;
+			align-items: center;
+			img {
+				height: 3rem;
+				margin-right: 1rem;
+			}
+			// flex-grow: 1;
+		}
+
 		nav {
 			display: flex;
 			justify-content: space-evenly;
 			flex-direction: row;
-			min-width: 25%;
+			width: auto;
 
 			ul {
-				min-width: max(40vw, 100%);
+				box-sizing: content-box;
+				align-items: center;
+				display: flex;
 
 				li {
 					display: inline;
-					margin-left: 1%;
-					font-size: 1.2em;
+					margin-left: 3rem;
+					a {
+						font-size: 1.2em;
+						background: none;
+						height: 100%;
+						svg {
+							filter: brightness(1);
+							min-height: 3rem;
+							max-width: 100%;
+							transition: filter 0.1s linear;
+							color: white !important;
+							&:hover {
+								filter: brightness(0.5);
+							}
+						}
+					}
 				}
 			}
 		}
