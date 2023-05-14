@@ -24,7 +24,7 @@
 		padding: 2%;
 		overflow-x: hidden;
 
-		* {
+		& > * {
 			margin-bottom: 1%;
 		}
 	}
@@ -53,12 +53,26 @@
 			min-width: 25%;
 
 			ul {
+				align-items: center;
+				display: flex;
 				min-width: max(40vw, 100%);
 
 				li {
 					display: inline;
-					margin-left: 1%;
+					margin-left: 3%;
 					font-size: 1.2em;
+					a {
+						background: none;
+						height: 100%;
+						svg {
+							filter: brightness(0.5);
+							min-height: 3rem;
+							transition: filter 0.1s linear;
+							&:hover {
+								filter: brightness(1);
+							}
+						}
+					}
 				}
 			}
 		}

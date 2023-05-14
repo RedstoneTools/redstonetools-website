@@ -1,5 +1,8 @@
 ---
+import DiscordIcon from '../components/DiscordIcon.astro';
+import GithubIcon from '../components/GithubIcon.astro';
 import GlobalStyles from '../components/GlobalStyles.astro';
+import ModrinthIcon from '../components/ModrinthIcon.astro';
 
 interface Props {
 	currentPage: string;
@@ -23,11 +26,27 @@ const { currentPage }: Props = Astro.props;
 			</h1>
 
 			<nav>
-				<ul>
+				<ul class='internal'>
 					<li><a href='/'>Home</a></li>
 					<li><a href='/documentation'>Docs</a></li>
 					<li>
 						<a href='/download'>Download</a>
+					</li>
+					<li>
+						<a href='https://modrinth.com/mod/redstone-tools' target='_blank'
+							><ModrinthIcon /></a
+						>
+					</li>
+					<li>
+						<a href='https://discord.gg/nXWmrAsJQ8' target='_blank'
+							><DiscordIcon /></a
+						>
+					</li>
+					<li>
+						<a
+							href='https://github.com/redstonetools/redstonetools-mod'
+							target='_blank'><GithubIcon /></a
+						>
 					</li>
 				</ul>
 			</nav>
