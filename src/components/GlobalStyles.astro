@@ -46,16 +46,25 @@
 		align-items: center;
 		text-align: center;
 
+		.title {
+			display: flex;
+			align-items: center;
+			img {
+				height: 5em;
+			}
+			flex-grow: 1;
+		}
+
 		nav {
 			display: flex;
 			justify-content: space-evenly;
 			flex-direction: row;
-			min-width: 25%;
+			max-width: 100vw;
+			flex-grow: 1;
 
 			ul {
 				align-items: center;
 				display: flex;
-				min-width: max(40vw, 100%);
 
 				li {
 					display: inline;
@@ -66,7 +75,7 @@
 						height: 100%;
 						svg {
 							filter: brightness(0.5);
-							min-height: 3rem;
+							min-height: min(3rem, 5vh);
 							transition: filter 0.1s linear;
 							&:hover {
 								filter: brightness(1);

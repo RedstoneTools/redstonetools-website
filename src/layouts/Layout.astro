@@ -21,9 +21,12 @@ const { currentPage }: Props = Astro.props;
 	</head>
 	<body>
 		<header>
-			<h1 class='accent'>
-				Redstone Tools{currentPage === 'Home' ? '' : ` - ${currentPage}`}
-			</h1>
+			<div class='title'>
+				<img src='/favicon.png' />
+				<h1 class='accent'>
+					Redstone Tools{currentPage === 'Home' ? '' : ` - ${currentPage}`}
+				</h1>
+			</div>
 
 			<nav>
 				<ul class='internal'>
