@@ -2,7 +2,8 @@
    
 FROM node:18-alpine
 WORKDIR /app
-RUN npm install @astrojs/node
+COPY ./package.json ./package.json
+RUN npm install
 CMD pnpm install --production
 CMD pnpm build
 COPY ./dist ./dist
