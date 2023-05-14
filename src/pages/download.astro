@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { marked } from 'marked';
+
+const latestRelease = await (
+	await fetch(
+		'https://api.github.com/repos/RedstoneTools/redstonetools/releases/latest',
+	)
+).json();
+
+const versionNumber = latestRelease.tag_name;
+const releaseUrl = latestRelease.html_url;
+const jarDownload = latestRelease.assets[0].browser_download_url;
+const sourceDownload = latestRelease.zipball_url;
+const body = latestRelease.body;
+let content: string;
+if (body) {
+	content = marked.parse(body, { mangle: false, headerIds: false });
+}
+---
+
+<Layout currentPage='Download'>
+	<main>
+		<div class='container'>
+			<a href={jarDownload} class='option jar' target='_blank'>
+				<div>
+					<h3>Jar</h3>
+					<p>Dowload the Jar then drag and drop into your mods folder.</p>
+				</div>
+			</a>
+			<a href='curseforge://install?addonId=849609' class='option curseforge'>
+				<div>
+					<h3>Curseforge</h3>
+					<p>Open in curseforge launcher</p>
+				</div>
+			</a>
+			<a
+				href='https://modrinth.com/mod/redstone-tools'
+				class='option modrinth'
+				target='_blank'
+			>
+				<div>
+					<h3>Modrinth</h3>
+					<p>Open the modrinth page</p>
+				</div>
+			</a>
+			<a href={sourceDownload} class='option source' target='_blank'>
+				<div>
+					<h3>Build from source</h3>
+					<p>
+						Download the source code and build the jar for yourself (only do
+						this if you know what you're doing)
+					</p>
+				</div>
+			</a>
+		</div>
+		<h2><a href={releaseUrl} target='_blank'>{versionNumber}</a></h2>
+		<div class='changelog' set:html={content} />
+	</main>
+	<style lang='scss' slot='head'>
+		.container {
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			& > * > div {
+				padding: max(1.5%, 7px);
+				margin: max(1%, 7px);
+				min-width: max(47%, 0px);
+				border-radius: 10px;
+				min-height: 25vh;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+			}
+			& > * {
+				flex: 1 1 40vw;
+				margin: 1%;
+			}
+		}
+
+		.jar > div {
+			background: var(--accent-color);
+		}
+
+		.curseforge > div {
+			background: rgb(180, 74, 35);
+		}
+
+		.modrinth > div {
+			background: rgb(102, 175, 60);
+		}
+
+		.source > div {
+			background: rgb(98, 138, 223);
+		}
+
+		.option:hover {
+			color: black;
+		}
+
+		.option {
+			background: none;
+			text-align: center;
+			font-size: 1.25em;
+		}
+	</style>
+</Layout>
